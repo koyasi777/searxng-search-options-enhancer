@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SearXNG検索オプション強化UI 🔍️
-// @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
-// @version      3.5.2
+// @namespace    https://github.com/koyasi777/searxng-search-options-ui-enhancer
+// @version      3.6.2
 // @description  SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
 // @author       koyasi777
 // @match        *://*/searx/search*
@@ -270,7 +270,10 @@
         .replace(/date:[^\s]+/g, '')
         .replace(/cc_[^\s]+/g, '')
         .replace(/\b(intitle|inurl|inanchor):/g, '')
+        .replace(/"[^"]*"/g, '')  // ★ ダブルクォート内の文字列（完全一致）を除去
+        .replace(/-[^\s]+/g, '')  // ★ 除外キーワード（-xxx）も除去
         .trim();
+
 
       if (gsoAll) gsoAll.value = base;
     }
