@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SearXNG検索オプション強化UI 🔍️
-// @namespace    https://github.com/koyasi777/searxng-search-options-ui-enhancer
+// @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
 // @version      3.6.2
 // @description  SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
 // @author       koyasi777
