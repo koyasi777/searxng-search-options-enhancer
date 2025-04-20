@@ -2,7 +2,7 @@
 
 ## 📌 概要
 
-**SearXNG検索エンジンに、Googleライクな「詳細検索オプションサイドバー」** を追加します。  
+**SearXNG検索エンジンに、「詳細検索オプションサイドバー」** を追加します。  
 検索フォームを拡張し、**ファイル形式・地域・ライセンス・更新日・検索対象範囲などを直感的に設定可能！**  
 さらに、**言語選択のドロップダウンを日本語・英語・自動検出のみ**に制限して、スッキリ快適なUIを実現します。
 
@@ -39,14 +39,14 @@
 
 1. ブラウザに **[Violentmonkey](https://violentmonkey.github.io/)** または **[Tampermonkey](https://www.tampermonkey.net/)** を導入
 2. 以下のリンクからスクリプトをインストール  
-   👉 **[このスクリプトをインストールする](https://raw.githubusercontent.com/koyasi777/searxng-search-options-ui-enhancer/main/searxng-search-options-ui-enhancer.user.js)**
+   👉 **[このスクリプトをインストールする](https://raw.githubusercontent.com/koyasi777/searxng-search-options-enhancer/main/searxng-search-options-enhancer.user.js)**
 3. 検索ページにアクセスすると、右上に詳細検索UIが自動表示されます！
 
 ---
 
 ## 📸 スクリーンショット
 
-※準備中（`/images/sidebar-ui.png` などに設置すると、ここに表示できます）
+※準備中
 
 ---
 
