@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SearXNG検索オプション強化UI 🔍️
 // @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
-// @version      3.6.2
+// @version      3.7.0
 // @description  SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
 // @author       koyasi777
 // @match        *://*/searx/search*
@@ -116,6 +116,58 @@
         background-color: #303134;
         color: #e8eaed;
         border: 1px solid #5f6368;
+      }
+    }
+
+
+    #${SIDEBAR_ID} .gso-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    #${SIDEBAR_ID} .gso-buttons button {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #${SIDEBAR_ID} .gso-buttons button:focus {
+      outline: 2px solid #4285f4;
+      outline-offset: 2px;
+    }
+
+    #${SIDEBAR_ID} .gso-buttons button:hover {
+      filter: brightness(1.03);
+    }
+
+    #${SIDEBAR_ID} .gso-buttons button:active {
+      transform: scale(0.97);
+    }
+
+    #${SIDEBAR_ID} .gso-clear {
+      background: #f1f3f4;
+      color: #202124;
+    }
+
+    #${SIDEBAR_ID} .gso-search {
+      background: #1a73e8;
+      color: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #${SIDEBAR_ID} .gso-clear {
+        background: #3c4043;
+        color: #e8eaed;
+      }
+      #${SIDEBAR_ID} .gso-search {
+        background: #8ab4f8;
+        color: #202124;
       }
     }
   `;
@@ -290,6 +342,7 @@
     form.submit();
   }
 
+  // 🆕 ✅ 修正: createInput に autoSubmit フラグ追加（Enterのみ有効）
   function createInput(labelText, id) {
     const label = document.createElement('label');
     label.textContent = labelText;
@@ -297,10 +350,19 @@
     input.id = `gso-${id}`;
     input.name = id;
     label.appendChild(input);
-    input.addEventListener('change', submitQuery);
+
+    // 🔄 Enterキーだけでsubmit。blurやchangeでは送信しない
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        submitQuery();
+      }
+    });
+
     return label;
   }
 
+  // ✅ 修正: createSelect も同様に、Enterキー以外でsubmitしない
   function createSelect(labelText, id, options) {
     const label = document.createElement('label');
     label.textContent = labelText;
@@ -313,9 +375,28 @@
       opt.textContent = text;
       select.appendChild(opt);
     });
-    select.addEventListener('change', submitQuery);
     label.appendChild(select);
     return label;
+  }
+
+    // 🆕 ✅ Clearボタン追加用
+  function clearSidebarInputs() {
+    fields.forEach(([id]) => {
+      const el = document.getElementById(`gso-${id}`);
+      if (!el) return;
+      if (el.tagName === 'INPUT') {
+        el.value = '';
+      } else if (el.tagName === 'SELECT') {
+        el.selectedIndex = 0;
+      }
+    });
+
+    ['uilang', 'safesearch'].forEach(id => {
+      const el = document.getElementById(`gso-${id}`);
+      if (el && el.tagName === 'SELECT') {
+        el.selectedIndex = 0;
+      }
+    });
   }
 
   function createSelectFromNative(labelText, id, nativeSelector) {
@@ -343,6 +424,7 @@
     return label;
   }
 
+  // ✅ Sidebar生成関数にボタンUI追加
   function insertSidebar() {
     if (document.getElementById(SIDEBAR_ID)) return;
 
@@ -378,6 +460,25 @@
 
     const safeSearchUI = createSelectFromNative('セーフサーチ', 'safesearch', '#safesearch');
     if (safeSearchUI) body.appendChild(safeSearchUI);
+
+    // 🆕 ✅ Clear/Searchボタン追加
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'gso-buttons';
+
+    const clearButton = document.createElement('button');
+    clearButton.textContent = '🧹 Clear';
+    clearButton.className = 'gso-clear';
+    clearButton.onclick = () => clearSidebarInputs();
+
+    const searchButton = document.createElement('button');
+    searchButton.textContent = '🔍 Search';
+    searchButton.className = 'gso-search';
+    searchButton.onclick = () => submitQuery();
+
+    buttonContainer.appendChild(clearButton);
+    buttonContainer.appendChild(searchButton);
+    body.appendChild(buttonContainer);
+
 
     sidebar.appendChild(body);
     document.body.appendChild(sidebar);
