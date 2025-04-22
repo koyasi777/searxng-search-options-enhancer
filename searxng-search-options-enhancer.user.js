@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SearXNG検索オプション強化UI 🔍️
 // @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
-// @version      3.7.0
+// @version      3.8.0
 // @description  SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
 // @author       koyasi777
 // @match        *://*/searx/search*
@@ -306,32 +306,10 @@
     const input = form?.querySelector('input[name="q"]');
     if (!input) return;
 
-    const gsoAll = document.getElementById('gso-all');
-    const activeEl = document.activeElement;
-    let base;
+    // サイドバーの状態のみからクエリを構築
+    input.value = buildQueryFromUI();
 
-    if (activeEl === gsoAll) {
-      base = gsoAll.value.trim();
-    } else {
-      const raw = input.value;
-
-      base = stripOrClauses(raw)
-        .replace(/filetype:[^\s]+/g, '')
-        .replace(/site:[^\s]+/g, '')
-        .replace(/region:[^\s]+/g, '')
-        .replace(/date:[^\s]+/g, '')
-        .replace(/cc_[^\s]+/g, '')
-        .replace(/\b(intitle|inurl|inanchor):/g, '')
-        .replace(/"[^"]*"/g, '')  // ★ ダブルクォート内の文字列（完全一致）を除去
-        .replace(/-[^\s]+/g, '')  // ★ 除外キーワード（-xxx）も除去
-        .trim();
-
-
-      if (gsoAll) gsoAll.value = base;
-    }
-
-    input.value = buildQueryFromUI(base);
-
+    // 時間範囲セレクタの同期
     const dateValue = document.getElementById('gso-date')?.value || '';
     const timeRange = reverseTimeMap[dateValue] || '';
     const timeRangeSelect = document.getElementById('time_range');
@@ -339,10 +317,12 @@
       timeRangeSelect.value = timeRange;
     }
 
+    // 検索実行
     form.submit();
   }
 
-  // 🆕 ✅ 修正: createInput に autoSubmit フラグ追加（Enterのみ有効）
+
+  // createInput に autoSubmit フラグ追加（Enterのみ有効）
   function createInput(labelText, id) {
     const label = document.createElement('label');
     label.textContent = labelText;
@@ -362,7 +342,7 @@
     return label;
   }
 
-  // ✅ 修正: createSelect も同様に、Enterキー以外でsubmitしない
+  // 修正: createSelect も同様に、Enterキー以外でsubmitしない
   function createSelect(labelText, id, options) {
     const label = document.createElement('label');
     label.textContent = labelText;
@@ -424,7 +404,7 @@
     return label;
   }
 
-  // ✅ Sidebar生成関数にボタンUI追加
+  // Sidebar生成関数にボタンUI追加
   function insertSidebar() {
     if (document.getElementById(SIDEBAR_ID)) return;
 
@@ -473,7 +453,11 @@
     const searchButton = document.createElement('button');
     searchButton.textContent = '🔍 Search';
     searchButton.className = 'gso-search';
-    searchButton.onclick = () => submitQuery();
+    // イベント遅延で最新状態のフォームを取得
+    searchButton.onclick = () => {
+      // 入力反映（ただし submitQuery が UIの最新値を使うようになったのでこの blur はなくてもよい）
+      setTimeout(() => submitQuery(), 0);
+    };
 
     buttonContainer.appendChild(clearButton);
     buttonContainer.appendChild(searchButton);
