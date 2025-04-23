@@ -1,8 +1,27 @@
 // ==UserScript==
 // @name         SearXNG検索オプション強化UI 🔍️
+// @name:ja      SearXNG検索オプション強化UI 🔍️
+// @name:en      Enhanced Search Options UI for SearXNG 🔍️
+// @name:zh-CN   SearXNG搜索选项增强界面 🔍️
+// @name:zh-TW   SearXNG搜尋選項增強介面 🔍️
+// @name:ko      SearXNG 검색 옵션 강화 UI 🔍️
+// @name:fr      Interface améliorée pour les options de recherche SearXNG 🔍️
+// @name:es      Interfaz mejorada de opciones de búsqueda para SearXNG 🔍️
+// @name:de      Verbesserte Suchoptionen-Oberfläche für SearXNG 🔍️
+// @name:pt-BR   Interface aprimorada de opções de pesquisa para SearXNG 🔍️
+// @name:ru      Улучшенный интерфейс опций поиска для SearXNG 🔍️
+// @version      3.8.1
+// @description         SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
+// @description:en      Adds a detailed search options sidebar to SearXNG. Simplifies language selection to English and Japanese with auto-detection.
+// @description:zh-CN   为SearXNG搜索引擎添加详细选项侧边栏，仅保留英文和日文语言选项，并启用自动检测。
+// @description:zh-TW   為SearXNG搜尋引擎新增詳細選項側邊欄，自動偵測語言並僅顯示英文和日文選項。
+// @description:ko      SearXNG에 검색 옵션 사이드바를 추가하고 언어 선택을 영어와 일본어로 간소화하며 자동 감지 지원.
+// @description:fr      Ajoute une barre latérale d’options de recherche à SearXNG. Seules les langues anglais et japonais sont disponibles, avec détection automatique.
+// @description:es      Añade una barra lateral con opciones de búsqueda avanzadas en SearXNG. Simplifica la selección de idiomas a inglés y japonés con detección automática.
+// @description:de      Fügt eine erweiterte Suchoptionen-Seitenleiste zu SearXNG hinzu. Nur Englisch und Japanisch als Sprachen mit automatischer Erkennung verfügbar.
+// @description:pt-BR   Adiciona uma barra lateral com opções detalhadas de pesquisa ao SearXNG, com seleção de idioma reduzida para inglês e japonês e detecção automática.
+// @description:ru      Добавляет боковую панель расширенных параметров поиска в SearXNG. Поддерживает только английский и японский языки с автодетекцией.
 // @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
-// @version      3.8.0
-// @description  SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
 // @author       koyasi777
 // @match        *://*/searx/search*
 // @match        *://*/searxng/search*
@@ -11,6 +30,7 @@
 // @match        https://search.charleseroop.com/*
 // @grant        GM_addStyle
 // @license      MIT
+// @icon         https://docs.searxng.org/_static/searxng-wordmark.svg
 // ==/UserScript==
 
 (function () {
