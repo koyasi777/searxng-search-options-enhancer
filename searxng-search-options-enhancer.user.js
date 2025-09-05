@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name         SearXNG検索オプション強化UI 🔍️（ドラッグ移動＋位置保存対応）
-// @name:ja      SearXNG検索オプション強化UI 🔍️（ドラッグ移動＋位置保存対応）
-// @name:en      Enhanced Search Options UI for SearXNG 🔍️ (Draggable + Persisted Position)
-// @name:zh-CN   SearXNG搜索选项增强界面 🔍️（支持拖拽并保存位置）
-// @name:zh-TW   SearXNG搜尋選項增強介面 🔍️（可拖曳並保存位置）
-// @name:ko      SearXNG 검색 옵션 강화 UI 🔍️ (드래그 이동 + 위치 저장)
-// @name:fr      Interface améliorée pour les options de recherche SearXNG 🔍️ (Déplaçable + position persistante)
-// @name:es      Interfaz mejorada de opciones de búsqueda para SearXNG 🔍️ (Arrastrable + posición persistente)
-// @name:de      Verbesserte Suchoptionen-Oberfläche für SearXNG 🔍️ (Verschiebbar + Position speichern)
-// @name:pt-BR   Interface aprimorada de opções de pesquisa para SearXNG 🔍️ (Arrastável + posição persistente)
-// @name:ru      Улучшенный интерфейс опций поиска SearXNG 🔍️ (Перетаскивание + сохранение позиции)
+// @name         SearXNG検索オプション強化UI 🔍️
+// @name:ja      SearXNG検索オプション強化UI 🔍️
+// @name:en      Enhanced Search Options UI for SearXNG 🔍️
+// @name:zh-CN   SearXNG搜索选项增强界面 🔍️
+// @name:zh-TW   SearXNG搜尋選項增強介面 🔍️
+// @name:ko      SearXNG 검색 옵션 강화 UI 🔍️
+// @name:fr      Interface améliorée pour les options de recherche SearXNG 🔍️
+// @name:es      Interfaz mejorada de opciones de búsqueda para SearXNG 🔍️
+// @name:de      Verbesserte Suchoptionen-Oberfläche für SearXNG 🔍️
+// @name:pt-BR   Interface aprimorada de opções de pesquisa para SearXNG 🔍️
+// @name:ru      Улучшенный интерфейс опций поиска SearXNG 🔍️
 // @version      3.9.1
 // @description         SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）。サイドバーはドラッグで移動でき、位置も保存されます。
 // @description:en      Adds a detailed search options sidebar to SearXNG. Simplifies language selection to English and Japanese with auto-detection. The sidebar is draggable and its position is persisted.
