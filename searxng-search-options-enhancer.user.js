@@ -1,33 +1,33 @@
 // ==UserScript==
-// @name         SearXNG検索オプション強化UI 🔍️
-// @name:ja      SearXNG検索オプション強化UI 🔍️
-// @name:en      Enhanced Search Options UI for SearXNG 🔍️
-// @name:zh-CN   SearXNG搜索选项增强界面 🔍️
-// @name:zh-TW   SearXNG搜尋選項增強介面 🔍️
-// @name:ko      SearXNG 검색 옵션 강화 UI 🔍️
-// @name:fr      Interface améliorée pour les options de recherche SearXNG 🔍️
-// @name:es      Interfaz mejorada de opciones de búsqueda para SearXNG 🔍️
-// @name:de      Verbesserte Suchoptionen-Oberfläche für SearXNG 🔍️
-// @name:pt-BR   Interface aprimorada de opções de pesquisa para SearXNG 🔍️
-// @name:ru      Улучшенный интерфейс опций поиска для SearXNG 🔍️
-// @version      3.8.1
-// @description         SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）
-// @description:en      Adds a detailed search options sidebar to SearXNG. Simplifies language selection to English and Japanese with auto-detection.
-// @description:zh-CN   为SearXNG搜索引擎添加详细选项侧边栏，仅保留英文和日文语言选项，并启用自动检测。
-// @description:zh-TW   為SearXNG搜尋引擎新增詳細選項側邊欄，自動偵測語言並僅顯示英文和日文選項。
-// @description:ko      SearXNG에 검색 옵션 사이드바를 추가하고 언어 선택을 영어와 일본어로 간소화하며 자동 감지 지원.
-// @description:fr      Ajoute une barre latérale d’options de recherche à SearXNG. Seules les langues anglais et japonais sont disponibles, avec détection automatique.
-// @description:es      Añade una barra lateral con opciones de búsqueda avanzadas en SearXNG. Simplifica la selección de idiomas a inglés y japonés con detección automática.
-// @description:de      Fügt eine erweiterte Suchoptionen-Seitenleiste zu SearXNG hinzu. Nur Englisch und Japanisch als Sprachen mit automatischer Erkennung verfügbar.
-// @description:pt-BR   Adiciona uma barra lateral com opções detalhadas de pesquisa ao SearXNG, com seleção de idioma reduzida para inglês e japonês e detecção automática.
-// @description:ru      Добавляет боковую панель расширенных параметров поиска в SearXNG. Поддерживает только английский и японский языки с автодетекцией.
+// @name         SearXNG検索オプション強化UI 🔍️（ドラッグ移動＋位置保存対応）
+// @name:ja      SearXNG検索オプション強化UI 🔍️（ドラッグ移動＋位置保存対応）
+// @name:en      Enhanced Search Options UI for SearXNG 🔍️ (Draggable + Persisted Position)
+// @name:zh-CN   SearXNG搜索选项增强界面 🔍️（支持拖拽并保存位置）
+// @name:zh-TW   SearXNG搜尋選項增強介面 🔍️（可拖曳並保存位置）
+// @name:ko      SearXNG 검색 옵션 강화 UI 🔍️ (드래그 이동 + 위치 저장)
+// @name:fr      Interface améliorée pour les options de recherche SearXNG 🔍️ (Déplaçable + position persistante)
+// @name:es      Interfaz mejorada de opciones de búsqueda para SearXNG 🔍️ (Arrastrable + posición persistente)
+// @name:de      Verbesserte Suchoptionen-Oberfläche für SearXNG 🔍️ (Verschiebbar + Position speichern)
+// @name:pt-BR   Interface aprimorada de opções de pesquisa para SearXNG 🔍️ (Arrastável + posição persistente)
+// @name:ru      Улучшенный интерфейс опций поиска SearXNG 🔍️ (Перетаскивание + сохранение позиции)
+// @version      3.9.1
+// @description         SearXNG検索エンジンに詳細検索オプションサイドバーを追加（言語選択も自動検出と英語と日本語のみにしてすっきり）。サイドバーはドラッグで移動でき、位置も保存されます。
+// @description:en      Adds a detailed search options sidebar to SearXNG. Simplifies language selection to English and Japanese with auto-detection. The sidebar is draggable and its position is persisted.
+// @description:zh-CN   为SearXNG添加详细搜索选项侧边栏，仅保留英文与日文并启用自动检测。侧边栏支持拖拽移动并可保存位置。
+// @description:zh-TW   為 SearXNG 新增詳細搜尋選項側邊欄，僅保留英文與日文並啟用自動偵測。側邊欄可拖曳移動並保存位置。
+// @description:ko      SearXNG에 상세 검색 옵션 사이드바를 추가합니다. 언어 선택은 영어/일본어와 자동 감지로 간소화됩니다. 사이드바는 드래그 이동 및 위치 저장을 지원합니다.
+// @description:fr      Ajoute une barre latérale d’options de recherche à SearXNG. Langues réduites à anglais/japonais avec détection automatique. La barre est déplaçable et sa position est conservée.
+// @description:es      Añade una barra lateral con opciones avanzadas a SearXNG. Selección de idioma simplificada a inglés y japonés con autodetección. La barra se puede arrastrar y guarda su posición.
+// @description:de      Fügt SearXNG eine Seitenleiste mit erweiterten Suchoptionen hinzu. Sprachwahl auf Englisch/Japanisch mit Auto-Erkennung. Die Leiste ist verschiebbar und speichert ihre Position.
+// @description:pt-BR   Adiciona uma barra lateral com opções detalhadas ao SearXNG, com idioma reduzido a inglês/japonês e detecção automática. A barra é arrastável e tem posição persistente.
+// @description:ru      Добавляет в SearXNG боковую панель расширенных параметров поиска. Языки: английский/японский с автоопределением. Панель можно перетаскивать; позиция сохраняется.
 // @namespace    https://github.com/koyasi777/searxng-search-options-enhancer
 // @author       koyasi777
 // @match        *://*/searx/search*
 // @match        *://*/searxng/search*
 // @match        *://searx.*/*
 // @match        *://*.searx.*/*
-// @match        https://search.charleseroop.com/*
+// @match        https://search.localhost/*
 // @grant        GM_addStyle
 // @license      MIT
 // @icon         https://docs.searxng.org/_static/searxng-wordmark.svg
@@ -58,6 +58,7 @@
   /*** 🧩 以下、検索オプションサイドバー ***/
   const SIDEBAR_ID = 'gso-advanced-sidebar';
   const COLLAPSE_KEY = 'gso_sidebar_collapsed';
+  const POS_KEY = 'gso_sidebar_pos'; // ⬅ 追加: 位置保存用
 
   const STYLE = `
     #${SIDEBAR_ID} {
@@ -77,6 +78,9 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       color: #202124;
     }
+    /* ⬇ 右寄せデフォルトをユーザ移動後は無効化 */
+    #${SIDEBAR_ID}[data-user-pos="1"] { right: auto !important; }
+
     #${SIDEBAR_ID}.collapsed {
       width: 180px;
       max-height: 21px;
@@ -95,6 +99,13 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      cursor: grab;            /* ⬅ ドラッグハンドル */
+      user-select: none;
+      touch-action: none;      /* ⬅ モバイルでのスクロール抑止（ヘッダ上） */
+    }
+    #${SIDEBAR_ID}.dragging {
+      cursor: grabbing;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.30);
     }
     #${SIDEBAR_ID} .gso-header h3 {
       font-size: 14px;
@@ -108,6 +119,9 @@
       color: #3367d6;
       margin: 0;
       user-select: none;
+      background: none;
+      border: none;
+      padding: 0;
     }
     #${SIDEBAR_ID} label {
       display: block;
@@ -210,6 +224,31 @@
   };
   const reverseTimeMap = Object.fromEntries(Object.entries(timeRangeMap).map(([k, v]) => [v, k]));
 
+  // ==== 双方向同期（Sidebar <-> #q）====
+  let syncingFromSidebar = false;
+  let syncingFromQ = false;
+  let syncTimer = 0;
+  function debounce(fn, wait = 120) {
+    return (...args) => {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(() => fn(...args), wait);
+    };
+  }
+  function syncQFromSidebarImmediate() {
+    const qInput = document.querySelector('#q');
+    if (!qInput) return;
+    if (syncingFromQ) return;
+    syncingFromSidebar = true;
+    qInput.value = buildQueryFromUI();
+    // 時間範囲のリアルタイム同期
+    const dateValue = document.getElementById('gso-date')?.value || '';
+    const timeRange = reverseTimeMap[dateValue] || '';
+    const timeRangeSelect = document.getElementById('time_range');
+    if (timeRangeSelect) timeRangeSelect.value = timeRange;
+    syncingFromSidebar = false;
+  }
+  const syncQFromSidebar = debounce(syncQFromSidebarImmediate, 120);
+
   const fields = [
     ['all', 'すべてのキーワード'],
     ['exact', '完全一致キーワード'],
@@ -304,13 +343,11 @@
     let i = 0;
 
     while (i < tokens.length) {
-      // ORグループの開始を検知（例: tok i+1 === 'OR'）
       if (tokens[i + 1] === 'OR') {
-        // OR連鎖を全てスキップ
         while (tokens[i + 1] === 'OR') {
-          i += 2; // skip current + OR + next
+          i += 2;
         }
-        i += 1; // skip最後の単語
+        i += 1;
       } else {
         result.push(tokens[i]);
         i += 1;
@@ -320,27 +357,127 @@
     return result.join(' ');
   }
 
-
   function submitQuery() {
     const form = document.querySelector('form[action="/search"]');
     const input = form?.querySelector('input[name="q"]');
     if (!input) return;
 
-    // サイドバーの状態のみからクエリを構築
     input.value = buildQueryFromUI();
 
-    // 時間範囲セレクタの同期
     const dateValue = document.getElementById('gso-date')?.value || '';
     const timeRange = reverseTimeMap[dateValue] || '';
     const timeRangeSelect = document.getElementById('time_range');
     if (timeRangeSelect) {
-      timeRangeSelect.value = timeRange;
-    }
+        const trVal = timeRangeSelect.value;
+        if (trVal && timeRangeMap[trVal]) {
+          const dateSel = document.getElementById('gso-date');
+          if (dateSel) dateSel.value = timeRangeMap[trVal];
+        }
+        // ネイティブ time_range 変更→サイドバー＆#q を即時同期
+        timeRangeSelect.addEventListener('change', () => {
+          const dateSel = document.getElementById('gso-date');
+          if (dateSel && timeRangeMap[timeRangeSelect.value]) {
+            dateSel.value = timeRangeMap[timeRangeSelect.value];
+          }
+          syncQFromSidebarImmediate();
+        });
+      }
 
-    // 検索実行
     form.submit();
   }
 
+  // ===== 🧲 ここからドラッグ＆位置保存ロジック =====
+  function clampToViewport(left, top, el) {
+    const pad = 8; // 画面端の余白
+    const w = el.offsetWidth || 260; // 未描画時の保険
+    const h = el.offsetHeight || 200;
+    const maxLeft = Math.max(0, window.innerWidth - w - pad);
+    const maxTop  = Math.max(0, window.innerHeight - h - pad);
+    return {
+      left: Math.min(Math.max(left, pad), maxLeft),
+      top:  Math.min(Math.max(top,  pad), maxTop)
+    };
+  }
+
+  function applyPos(sidebar, left, top) {
+    const L = Math.round(left);
+    const T = Math.round(top);
+    sidebar.style.left = `${L}px`;
+    sidebar.style.top  = `${T}px`;
+    sidebar.style.right = 'auto';
+    sidebar.dataset.userPos = '1';
+  }
+
+  function savePos(sidebar) {
+    const r = sidebar.getBoundingClientRect();
+    localStorage.setItem(POS_KEY, JSON.stringify({ left: r.left, top: r.top }));
+  }
+
+  function loadPos(sidebar) {
+    const raw = localStorage.getItem(POS_KEY);
+    if (!raw) return;
+    try {
+      const { left, top } = JSON.parse(raw);
+      const { left: L, top: T } = clampToViewport(left, top, sidebar);
+      applyPos(sidebar, L, T);
+    } catch { /* noop */ }
+  }
+
+  function addDragBehavior(sidebar, handle) {
+    let pointerId = null;
+    let start = null;
+
+    handle.addEventListener('pointerdown', (e) => {
+      pointerId = e.pointerId;
+      handle.setPointerCapture(pointerId);
+      const r = sidebar.getBoundingClientRect();
+      start = { x: e.clientX, y: e.clientY, left: r.left, top: r.top };
+      sidebar.classList.add('dragging');
+      document.body.style.userSelect = 'none';
+    });
+
+    handle.addEventListener('pointermove', (e) => {
+      if (pointerId == null || !handle.hasPointerCapture(pointerId)) return;
+      const dx = e.clientX - start.x;
+      const dy = e.clientY - start.y;
+      const { left, top } = clampToViewport(start.left + dx, start.top + dy, sidebar);
+      applyPos(sidebar, left, top);
+    });
+
+    const endDrag = () => {
+      if (pointerId == null) return;
+      handle.releasePointerCapture(pointerId);
+      pointerId = null;
+      sidebar.classList.remove('dragging');
+      document.body.style.userSelect = '';
+      savePos(sidebar);
+    };
+
+    handle.addEventListener('pointerup', endDrag);
+    handle.addEventListener('pointercancel', endDrag);
+
+    // ウィンドウリサイズで画面外に行かないように補正
+    window.addEventListener('resize', () => {
+      const raw = localStorage.getItem(POS_KEY);
+      if (!raw) return;
+      try {
+        const { left, top } = JSON.parse(raw);
+        const { left: L, top: T } = clampToViewport(left, top, sidebar);
+        applyPos(sidebar, L, T);
+        savePos(sidebar);
+      } catch { /* noop */ }
+    });
+
+    // ダブルクリックで位置リセット（デフォルト: 右 20px / 上 100px）
+    handle.addEventListener('dblclick', () => {
+      localStorage.removeItem(POS_KEY);
+      sidebar.dataset.userPos = '';
+      sidebar.style.left = '';
+      sidebar.style.top = '';
+      sidebar.style.right = '';
+    });
+  }
+  // ===== ここまでドラッグ＆位置保存ロジック =====
 
   // createInput に autoSubmit フラグ追加（Enterのみ有効）
   function createInput(labelText, id) {
@@ -351,12 +488,15 @@
     input.name = id;
     label.appendChild(input);
 
-    // 🔄 Enterキーだけでsubmit。blurやchangeでは送信しない
     input.addEventListener('keydown', e => {
       if (e.key === 'Enter') {
         e.preventDefault();
         submitQuery();
       }
+    });
+    // 入力のたびに #q をリアルタイム更新（デバウンス）
+    input.addEventListener('input', () => {
+      syncQFromSidebar();
     });
 
     return label;
@@ -376,10 +516,14 @@
       select.appendChild(opt);
     });
     label.appendChild(select);
+    // セレクト変更時は即時反映（待ち無し）
+    select.addEventListener('change', () => {
+      syncQFromSidebarImmediate();
+    });
     return label;
   }
 
-    // 🆕 ✅ Clearボタン追加用
+  // 🆕 ✅ Clearボタン用
   function clearSidebarInputs() {
     fields.forEach(([id]) => {
       const el = document.getElementById(`gso-${id}`);
@@ -424,7 +568,7 @@
     return label;
   }
 
-  // Sidebar生成関数にボタンUI追加
+  // Sidebar生成関数（ドラッグ＆位置保存に対応）
   function insertSidebar() {
     if (document.getElementById(SIDEBAR_ID)) return;
 
@@ -437,20 +581,45 @@
     header.className = 'gso-header';
     const title = document.createElement('h3');
     title.textContent = '詳細検索オプション';
-    const toggle = document.createElement('div');
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
     toggle.className = 'gso-toggle';
     toggle.textContent = '▲ 閉じる';
-    toggle.onclick = () => {
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.addEventListener('pointerdown', (e) => { e.stopPropagation(); });
+    toggle.addEventListener('mousedown', (e) => { e.stopPropagation(); });
+    const onToggle = () => {
+      // 折りたたみ時も「右上起点」に見えるよう、トグル前の右端を保持
+      const pre = sidebar.getBoundingClientRect();
+      const preLeft = pre.left;
+      const preTop = pre.top;
+      const preWidth = pre.width;
+
       const collapsed = sidebar.classList.toggle('collapsed');
       toggle.textContent = collapsed ? '▼ 開く' : '▲ 閉じる';
+      toggle.setAttribute('aria-expanded', String(!collapsed));
       localStorage.setItem(COLLAPSE_KEY, collapsed ? '1' : '0');
+
+      if (sidebar.dataset.userPos === '1') {
+        requestAnimationFrame(() => {
+          const post = sidebar.getBoundingClientRect();
+          // 右端（preLeft + preWidth）を不変にして、新しい幅に合わせて left を再計算
+          const desiredLeft = preLeft + preWidth - post.width;
+          const { left, top } = clampToViewport(desiredLeft, preTop, sidebar);
+          applyPos(sidebar, left, top);
+          savePos(sidebar);
+        });
+      }
     };
+    toggle.addEventListener('click', (e) => { e.stopPropagation(); onToggle(); });
+    toggle.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } });
     header.appendChild(title);
     header.appendChild(toggle);
     sidebar.appendChild(header);
 
     const body = document.createElement('div');
     body.className = 'gso-body';
+    body.id = 'gso-body';
     fields.forEach(([id, label]) => {
       body.appendChild(selects[id] ? createSelect(label, id, selects[id]) : createInput(label, id));
     });
@@ -461,7 +630,7 @@
     const safeSearchUI = createSelectFromNative('セーフサーチ', 'safesearch', '#safesearch');
     if (safeSearchUI) body.appendChild(safeSearchUI);
 
-    // 🆕 ✅ Clear/Searchボタン追加
+    // 🆕 ✅ Clear/Searchボタン
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'gso-buttons';
 
@@ -473,19 +642,17 @@
     const searchButton = document.createElement('button');
     searchButton.textContent = '🔍 Search';
     searchButton.className = 'gso-search';
-    // イベント遅延で最新状態のフォームを取得
-    searchButton.onclick = () => {
-      // 入力反映（ただし submitQuery が UIの最新値を使うようになったのでこの blur はなくてもよい）
-      setTimeout(() => submitQuery(), 0);
-    };
+    searchButton.onclick = () => { setTimeout(() => submitQuery(), 0); };
 
     buttonContainer.appendChild(clearButton);
     buttonContainer.appendChild(searchButton);
     body.appendChild(buttonContainer);
 
-
     sidebar.appendChild(body);
     document.body.appendChild(sidebar);
+
+    // ⬇ ここでドラッグ＆位置保存ハンドラを有効化
+    addDragBehavior(sidebar, header);
 
     const qInput = document.querySelector('#q');
     if (qInput) {
@@ -496,11 +663,20 @@
       });
 
       const syncSidebarFromQ = () => {
+        if (syncingFromSidebar) return; // 片方向同期の循環防止
+        syncingFromQ = true;
         const updated = parseQuery(qInput.value);
         fields.forEach(([id]) => {
           const el = document.getElementById(`gso-${id}`);
           if (el) el.value = updated[id] || '';
         });
+        // time_range -> gso-date は SearXNG 側が変わる場合もあるため再同期
+        const timeRangeSelect = document.getElementById('time_range');
+        const dateSel = document.getElementById('gso-date');
+        if (timeRangeSelect && dateSel && timeRangeMap[timeRangeSelect.value]) {
+          dateSel.value = timeRangeMap[timeRangeSelect.value];
+        }
+        syncingFromQ = false;
       };
       qInput.addEventListener('input', syncSidebarFromQ);
       qInput.addEventListener('change', syncSidebarFromQ);
@@ -528,8 +704,13 @@
     const saved = localStorage.getItem(COLLAPSE_KEY);
     if (saved === '1') {
       sidebar.classList.add('collapsed');
-      toggle.textContent = '▼ 開く';
+      // toggle.textContent は上の onclick ロジックに合わせる
+      const toggleEl = sidebar.querySelector('.gso-toggle');
+      if (toggleEl) toggleEl.textContent = '▼ 開く';
     }
+
+    // ⬇ 最後に保存済み位置を反映（collapsed 状態も考慮して補正）
+    loadPos(sidebar);
   }
 
   window.addEventListener('load', insertSidebar);
